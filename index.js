@@ -1,17 +1,21 @@
-function Status(statusNumber = 0, statusString) {
-    if (statusString === undefined) {
-        statusString = `STATUS ${(statusNumber).toString()}`;
+class Status {
+    constructor(value, statusString) {
+        this._value = value;
+
+        if (statusString === undefined) {
+            statusString = `STATUS ${this.valueOf()}`;
+        }
+    
+        this._string = statusString; 
     }
-    this._number = statusNumber;
-    this._string = statusString;
-}
 
-Status.prototype.toString = function () {
-    return this._string;
-}
+    valueOf() {
+        return this._value;
+    }
 
-Status.prototype.toNumber = function () {
-    return this._number;
+    toString() {
+        return this._string;
+    }
 }
 
 const map = {
