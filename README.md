@@ -15,7 +15,7 @@ git submodule add http://www.github.com/redmarmaduke/http-status
 ```javascript
 const { OK } = require('http-status');
 
-OK.toNumber() // returns 200
+OK.valueOf() // returns 200
 OK.toString() // returns "OK"
 
 
