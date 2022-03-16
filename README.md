@@ -1,6 +1,6 @@
 # http-status
 
-http-status is a module I created to use in all my express/http apps.
+http-status is a module I created to use in all my express/RESTful apps.
 
 ## Installation
 
@@ -15,8 +15,8 @@ git submodule add http://www.github.com/redmarmaduke/http-status
 ```javascript
 const { OK } = require('http-status');
 
-OK.valueOf() // returns 200
-OK.toString() // returns "OK"
+OK.valueOf(); // returns 200
+OK.toString(); // returns "OK"
 
 
 ```
