@@ -1,0 +1,56 @@
+{
+  "name": "http-status",
+  "version": "1.0.0",
+  "description": "http-status is a module I created to use in all my express/RESTful apps.",
+  "main": "dist/cjs/index.js",
+  "module": "dist/mjs/index.js",
+  "exports": {
+    ".": {
+      "module": "./dist/mjs/index.mjs",
+      "require": "./dist/cjs/index.cjs"
+    }
+  },
+  "scripts": {
+    "build:cjs": "cross-env BABEL_ENV=\"cjs\" babel src/index.js -o dist/cjs/index.cjs",
+    "build:mjs": "cross-env BABEL_ENV=\"mjs\" babel src/index.js -o dist/mjs/index.mjs",
+    "prebuild": "rm -rf dist && mkdir -p dist/cjs dist/mjs",
+    "build": "npm run build:cjs && npm run build:mjs",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/redmarmaduke/http-status.git"
+  },
+  "keywords": [],
+  "author": "Manuel Nunes",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/redmarmaduke/http-status/issues"
+  },
+  "homepage": "https://github.com/redmarmaduke/http-status#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.20.7",
+    "@babel/core": "^7.20.12",
+    "@babel/preset-env": "^7.20.2"
+  },
+  "babel": {
+    "env": {
+      "cjs": {
+        "presets": [[ 
+            "@babel/preset-env",
+            {
+              "modules": "cjs"
+            }
+        ]]
+      },
+      "mjs": {
+        "presets": [[ 
+          "@babel/preset-env",
+          {
+            "modules": false
+          }
+        ]]
+      }
+    }    
+  }
+}

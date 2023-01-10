@@ -93,7 +93,8 @@ const map = {
     599: "Network Connect Timeout Error" // http.cat
 };
 
-module.exports = {};
+const statuses = {};
+
 
 for (const status in map) {
     // replace all groupings of "-","_" or whitespace with a single "_"
@@ -103,5 +104,7 @@ for (const status in map) {
     // make message uppercase
     message = message.toUpperCase();
     
-    module.exports[message]=new Status(parseInt(status),map[status]);
+    statuses[message]=new Status(parseInt(status),map[status]);
 }
+
+export default statuses;
