@@ -11,9 +11,9 @@
     }
   },
   "scripts": {
-    "build:cjs": "cross-env BABEL_ENV=\"cjs\" babel src/index.js -o dist/cjs/index.cjs",
-    "build:mjs": "cross-env BABEL_ENV=\"mjs\" babel src/index.js -o dist/mjs/index.mjs",
-    "prebuild": "rm -rf dist && mkdir -p dist/cjs dist/mjs",
+    "build:cjs": "cross-env BABEL_ENV=\"cjs\" babel src/index.js -o dist/cjs/index.js",
+    "build:mjs": "cross-env BABEL_ENV=\"mjs\" babel src/index.js -o dist/mjs/index.js",
+    "prebuild": "rm -rf dist && mkdir -p dist/cjs dist/mjs && node src/build.js > src/index.js",
     "build": "npm run build:cjs && npm run build:mjs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -36,21 +36,25 @@
   "babel": {
     "env": {
       "cjs": {
-        "presets": [[ 
+        "presets": [
+          [
             "@babel/preset-env",
             {
               "modules": "cjs"
             }
-        ]]
+          ]
+        ]
       },
       "mjs": {
-        "presets": [[ 
-          "@babel/preset-env",
-          {
-            "modules": false
-          }
-        ]]
+        "presets": [
+          [
+            "@babel/preset-env",
+            {
+              "modules": false
+            }
+          ]
+        ]
       }
-    }    
+    }
   }
 }
