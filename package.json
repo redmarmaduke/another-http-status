@@ -1,13 +1,13 @@
 {
-  "name": "http-status",
-  "version": "1.0.0",
-  "description": "http-status is a module I created to use in all my express/RESTful apps.",
+  "name": "another-http-status",
+  "version": "1.0.1",
+  "description": "another-http-status is a module I created to use in all my express/RESTful apps.",
   "main": "dist/cjs/index.js",
   "module": "dist/mjs/index.js",
   "exports": {
     ".": {
-      "module": "./dist/mjs/index.mjs",
-      "require": "./dist/cjs/index.cjs"
+      "module": "./dist/mjs/index.js",
+      "require": "./dist/cjs/index.js"
     }
   },
   "scripts": {
