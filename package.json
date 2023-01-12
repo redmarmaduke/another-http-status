@@ -1,25 +1,23 @@
 {
   "name": "another-http-status",
-  "version": "1.0.2",
+  "version": "1.0.7",
   "description": "another-http-status is a module I created to use in all my express/RESTful apps.",
   "main": "dist/cjs/index.js",
-  "module": "dist/mjs/index.js",
+  "module": "dist/mjs/index.mjs",
   "exports": {
-    ".": {
-      "module": "./dist/mjs/index.js",
+      "import": "./dist/mjs/index.mjs",
       "require": "./dist/cjs/index.js"
-    }
   },
   "scripts": {
     "build:cjs": "cross-env BABEL_ENV=\"cjs\" babel src/index.js -o dist/cjs/index.js",
-    "build:mjs": "cross-env BABEL_ENV=\"mjs\" babel src/index.js -o dist/mjs/index.js",
+    "build:mjs": "cross-env BABEL_ENV=\"mjs\" babel src/index.js -o dist/mjs/index.mjs",
     "prebuild": "rm -rf dist && mkdir -p dist/cjs dist/mjs && node src/build.js > src/index.js",
     "build": "npm run build:cjs && npm run build:mjs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/redmarmaduke/http-status.git"
+    "url": "git+https://github.com/redmarmaduke/another-http-status.git"
   },
   "keywords": [],
   "author": "Manuel Nunes",
