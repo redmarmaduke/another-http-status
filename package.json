@@ -1,6 +1,6 @@
 {
   "name": "another-http-status",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "another-http-status is a module I created to use in all my express/RESTful apps.",
   "main": "dist/cjs/index.js",
   "module": "dist/mjs/index.js",
@@ -50,6 +50,9 @@
           [
             "@babel/preset-env",
             {
+              "targets": {
+                "esmodules": true
+              },
               "modules": false
             }
           ]
