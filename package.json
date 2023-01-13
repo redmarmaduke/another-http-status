@@ -5,15 +5,19 @@
   "main": "dist/cjs/index.js",
   "module": "dist/mjs/index.mjs",
   "exports": {
-      "import": "./dist/mjs/index.mjs",
-      "require": "./dist/cjs/index.js"
+    "import": "./dist/mjs/index.mjs",
+    "require": "./dist/cjs/index.js"
   },
   "scripts": {
     "build:cjs": "cross-env BABEL_ENV=\"cjs\" babel src/index.js -o dist/cjs/index.js",
     "build:mjs": "cross-env BABEL_ENV=\"mjs\" babel src/index.js -o dist/mjs/index.mjs",
     "prebuild": "rm -rf dist && mkdir -p dist/cjs dist/mjs && node src/build.js > src/index.js",
     "build": "npm run build:cjs && npm run build:mjs",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build2": "webpack --mode=production --node-env=production",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:dev": "webpack --mode=development",
+    "build:prod": "webpack --mode=production --node-env=production",
+    "watch": "webpack --watch"
   },
   "repository": {
     "type": "git",
@@ -29,7 +33,12 @@
   "devDependencies": {
     "@babel/cli": "^7.20.7",
     "@babel/core": "^7.20.12",
-    "@babel/preset-env": "^7.20.2"
+    "@babel/preset-env": "^7.20.2",
+    "@webpack-cli/generators": "^3.0.1",
+    "babel-loader": "^9.1.2",
+    "prettier": "^2.8.2",
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1"
   },
   "babel": {
     "env": {
