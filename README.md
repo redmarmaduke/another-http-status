@@ -1,24 +1,29 @@
 # http-status
 
-http-status is a module I created to use in all my express/RESTful apps.
+http-status is a module I created to simplify handling STATUS codes.
 
 ## Installation
 
-git has support for submodules.
-
-```bash
-git submodule add http://www.github.com/redmarmaduke/http-status
+```
+npm install another-http-status
 ```
 
 ## Usage
 
+CommonJS:
 ```javascript
 const { OK } = require('http-status');
 
-OK.valueOf(); // returns 200
-OK.toString(); // returns "OK"
+console.log(String(OK), typeof String(OK), Number(OK), typeof Number(OK));
+// OK string 200 number
+```
 
+ECMA Module:
+```javascript
+import { OK } from 'http-status';
 
+console.log(String(OK), typeof String(OK), Number(OK), typeof Number(OK));
+// OK string 200 number
 ```
 
 ## License

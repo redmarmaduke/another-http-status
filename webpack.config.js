@@ -2,43 +2,27 @@
 
 const path = require("path");
 
-const isProduction = process.env.NODE_ENV == "production";
-
-const config = {
+const mjsConfig = {
   entry: "./src/index.js",
   output: {
-    path: path.resolve(__dirname, "dist"),
+    path: path.resolve(__dirname, "dist", "mjs"),
+    filename: "./index.mjs",
+    libraryTarget: "module"
   },
-  plugins: [
-    // Add your plugins here
-    // Learn more about plugins from https://webpack.js.org/configuration/plugins/
-  ],
-  module: {
-    rules: [
-      {
-        test: /\.(js|jsx)$/i,
-        exclude: /(node_modules|bower_components)/,
-        loader: "babel-loader",
-        options: {
-          presets: ""
-        }
-      },
-      {
-        test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif)$/i,
-        type: "asset",
-      },
-
-      // Add your rules for custom modules here
-      // Learn more about loaders from https://webpack.js.org/loaders/
-    ],
+  experiments: {
+    outputModule: true,
   },
 };
 
-module.exports = () => {
-  if (isProduction) {
-    config.mode = "production";
-  } else {
-    config.mode = "development";
+const cjsConfig = {
+  entry: "./src/index.js",
+  output: {
+    path: path.resolve(__dirname, "dist", "cjs"),
+    filename: "./index.cjs",
+    libraryTarget: "commonjs"
   }
-  return config;
+};
+
+module.exports = () => {
+  return [cjsConfig, mjsConfig];
 };

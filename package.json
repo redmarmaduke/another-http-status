@@ -1,20 +1,19 @@
 {
   "name": "another-http-status",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "another-http-status is a module I created to use in all my express/RESTful apps.",
-  "main": "dist/cjs/index.js",
-  "module": "dist/mjs/index.mjs",
+  "main": "dist/index.cjs",
+  "module": "dist/index.mjs",
   "exports": {
-    "import": "./dist/mjs/index.mjs",
-    "require": "./dist/cjs/index.js"
+    "import": "./dist/index.mjs",
+    "require": "./dist/index.cjs"
   },
-  "files": [ "/dist" ],
+  "files": [
+    "/dist"
+  ],
   "scripts": {
-    "build:cjs": "cross-env BABEL_ENV=\"cjs\" babel src/index.js -o dist/cjs/index.js",
-    "build:mjs": "cross-env BABEL_ENV=\"mjs\" babel src/index.js -o dist/mjs/index.mjs",
-    "prebuild": "rm -rf dist && mkdir -p dist/cjs dist/mjs && node src/build.js > src/index.js",
-    "build": "npm run build:cjs && npm run build:mjs",
-    "build2": "webpack --mode=production --node-env=production",
+    "prebuild": "rm -rf dist && mkdir dist & node src/build.js > src/index.js",
+    "build": "webpack --mode=production --node-env=production",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build:dev": "webpack --mode=development",
     "build:prod": "webpack --mode=production --node-env=production",
@@ -32,40 +31,9 @@
   },
   "homepage": "https://github.com/redmarmaduke/http-status#readme",
   "devDependencies": {
-    "@babel/cli": "^7.20.7",
-    "@babel/core": "^7.20.12",
-    "@babel/preset-env": "^7.20.2",
     "@webpack-cli/generators": "^3.0.1",
-    "babel-loader": "^9.1.2",
     "prettier": "^2.8.2",
     "webpack": "^5.75.0",
     "webpack-cli": "^5.0.1"
-  },
-  "babel": {
-    "env": {
-      "cjs": {
-        "presets": [
-          [
-            "@babel/preset-env",
-            {
-              "modules": "cjs"
-            }
-          ]
-        ]
-      },
-      "mjs": {
-        "presets": [
-          [
-            "@babel/preset-env",
-            {
-              "targets": {
-                "esmodules": true
-              },
-              "modules": false
-            }
-          ]
-        ]
-      }
-    }
   }
 }
