@@ -1,4 +1,4 @@
-# anotherhttp-status
+# another-http-status
 
 another-http-status is a module I created to simplify handling STATUS codes.
 
