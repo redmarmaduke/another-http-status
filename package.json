@@ -1,6 +1,6 @@
 {
   "name": "another-http-status",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "another-http-status is a module I created to use in all my express/RESTful apps.",
   "main": "dist/index.cjs",
   "module": "dist/index.mjs",
