@@ -1,6 +1,6 @@
-# http-status
+# anotherhttp-status
 
-http-status is a module I created to simplify handling STATUS codes.
+another-http-status is a module I created to simplify handling STATUS codes.
 
 ## Installation
 
@@ -18,7 +18,7 @@ console.log(String(OK), typeof String(OK), Number(OK), typeof Number(OK));
 // OK string 200 number
 ```
 
-ECMA Module:
+ES6 Module:
 ```javascript
 import { OK } from 'http-status';
 
